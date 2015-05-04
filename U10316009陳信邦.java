@@ -1,3 +1,5 @@
+//package chapter12 desk;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -10,10 +12,10 @@ public class TestImageIcon extends JFrame {
 
 	JPanel panel = new JPanel();
 	
-	JLabel pic1;
-	JLabel pic2;
-	JLabel pic3;
-	JLabel pic4;
+	JLabel pic1 = new JLabel(poker.poker1);
+	JLabel pic2 = new JLabel(poker.poker2);
+	JLabel pic3 = new JLabel(poker.poker3);
+	JLabel pic4 = new JLabel(poker.poker4);
 	
   public TestImageIcon() {
 
@@ -27,21 +29,15 @@ public class TestImageIcon extends JFrame {
 	
 	this.add(panel, BorderLayout.CENTER);
 	this.add(jbtRefresh, BorderLayout.SOUTH);
-	
 	//設定按按鍵後的情況
 	jbtRefresh.addActionListener(new ActionListener(){ 
 	      @Override 
 	      public void actionPerformed(ActionEvent e) {
-			panel.remove(pic1);
-			panel.remove(pic2);
-			panel.remove(pic3);
-			panel.remove(pic4);
 	        poker.refresh();
-			panel.add(pic1);
-			panel.add(pic2);
-			panel.add(pic3);
-			panel.add(pic4);
-			panel.repaint();
+			pic1.setIcon(poker.poker1);
+			pic2.setIcon(poker.poker2);
+			pic3.setIcon(poker.poker3);
+			pic4.setIcon(poker.poker4);
 	      }
 	    }
 	);
@@ -96,10 +92,6 @@ public class TestImageIcon extends JFrame {
 			poker2= new ImageIcon("card/" + deck[1]+".png");
 			poker3= new ImageIcon("card/" + deck[2]+".png");
 			poker4= new ImageIcon("card/" + deck[3]+".png");
-			pic1 = new JLabel(poker1);
-			pic2 = new JLabel(poker2);
-			pic3 = new JLabel(poker3);
-			pic4 = new JLabel(poker4);
 		}
 	}
 }
